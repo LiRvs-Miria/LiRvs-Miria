@@ -1,24 +1,44 @@
 # Hi, I'm LiRvs-Miria
 
-Compiler engineer focused on MLIR-based compilers for industrial control.
+I build compilers and debuggers for industrial control systems, with a
+security background. My interests converge on one thread: **invariants** —
+breaking them (security), guaranteeing them by construction (compilers),
+refuting them automatically (program analysis), and eventually proving
+them (machine-checked formal methods).
 
-## What I work on
+## Now
 
-- **MLIR compiler for IEC 61499 / IEC 61131-3 (Structured Text)** — custom MLIR dialects
-  for function blocks, algorithms and ABI (TableGen ODS: ops, types, interfaces,
-  constraints), with lowering pipelines that bring control programs down to LLVM IR.
-- **TableGen / ODS / DRR** — op definitions, traits and constraints, DAG rewrite rules,
-  and the `mlir-tblgen` code-generation workflows around them.
-- **Compiler refactoring** — restructuring the lowering pipeline into small, independent,
-  testable passes, from the ST frontend down to LLVM IR.
-- **Toolchain debugging** — a DAP-based debug stack on `lldb-dap` / `lldb-server`
-  that debugs the compiled artifacts on real aarch64 targets.
+- **LLVM upstream contributions**
+  - `[mlir][tblgen]` Error on unsubstituted `$_self` in op trait predicates —
+    [PR #227263](https://github.com/llvm/llvm-project/pull/227263)
+  - `[lldb-server]` Fix false watchpoint stop on single-step (aarch64) —
+    [PR #226880](https://github.com/llvm/llvm-project/pull/226880)
+- **[symrepl](https://github.com/LiRvs-Miria/symrepl)** — replay KLEE
+  symbolic-execution counterexamples under LLDB: path-condition-aware
+  breakpoints, step-by-step input injection, state dumps.
+- **Day job (closed source)** — an MLIR-based compiler for IEC 61499 /
+  IEC 61131-3 (Structured Text): custom MLIR dialects (TableGen ODS: ops,
+  types, interfaces, constraints), a multi-stage lowering pipeline down to
+  LLVM IR, and a DAP-based debug stack (`lldb-dap` / `lldb-server`) that
+  debugs compiled artifacts on real aarch64 targets.
 
-## Interests
+## Background
 
-MLIR - TableGen (ODS / DRR) - lowering & rewrite pipelines - LLVM IR - DWARF -
-industrial control runtimes - embedded Linux (aarch64)
+- **Security (5 years)** — binary reverse engineering, PKI/CA trust
+  systems, WAF and vulnerability scanning, anti-tamper engineering
+  (Linux anti-hook, hardware fingerprinting).
+- **Compilers & debuggers** — MLIR / TableGen (ODS, DRR), lowering and
+  rewrite pipelines, LLVM IR, DWARF, LLDB internals (`lldb-server`,
+  ptrace, hardware debug registers), the DAP protocol and tooling.
 
-## Tools
+## Toolbox
 
-C++ - CMake - MLIR / LLVM 20 - TableGen - ANTLR - Python - TypeScript - aarch64 embedded Linux
+C/C++20 · MLIR / LLVM · TableGen · Python · TypeScript · LLDB / DAP ·
+ptrace · DWARF · aarch64 embedded Linux · CMake · ANTLR
+
+## Direction
+
+Program analysis on MLIR — dataflow and symbolic execution on custom
+dialects — as the road toward formal methods: translation validation for
+lowering pipelines, and machine-checkable guarantees for the languages
+I build.
