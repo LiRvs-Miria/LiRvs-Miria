@@ -8,7 +8,7 @@ them (machine-checked formal methods).
 
 ## Now
 
-- **LLVM upstream contributions**
+- **LLVM upstream — open PRs**
   - `[mlir][tblgen]` Error on unsubstituted `$_self` in op trait predicates —
     [PR #227263](https://github.com/llvm/llvm-project/pull/227263)
   - `[lldb-server]` Fix false watchpoint stop on single-step (aarch64) —
