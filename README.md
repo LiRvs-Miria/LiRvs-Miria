@@ -8,11 +8,12 @@ them (machine-checked formal methods).
 
 ## Now
 
-- **LLVM upstream — open PRs**
-  - `[mlir][tblgen]` Error on unsubstituted `$_self` in op trait predicates —
-    [PR #227263](https://github.com/llvm/llvm-project/pull/227263)
-  - `[lldb-server]` Fix false watchpoint stop on single-step (aarch64) —
+- **LLVM upstream contributions**
+  - Merged — `[lldb-server]` Fix false watchpoint stop on single-step when the
+    hardware debug regset read fails (aarch64) —
     [PR #226880](https://github.com/llvm/llvm-project/pull/226880)
+  - In review — `[mlir][tblgen]` Error on unsubstituted `$_self` in op trait
+    predicates — [PR #227263](https://github.com/llvm/llvm-project/pull/227263)
 - **[symrepl](https://github.com/LiRvs-Miria/symrepl)** — replay KLEE
   symbolic-execution counterexamples under LLDB: path-condition-aware
   breakpoints, step-by-step input injection, state dumps.
