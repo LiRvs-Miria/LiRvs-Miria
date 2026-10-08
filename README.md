@@ -37,7 +37,7 @@ them (machine-checked formal methods).
 
 ## Toolbox
 
-C/C++20 · MLIR / LLVM · TableGen · Python · CMake
+C/C++20 · MLIR / LLVM · TableGen · Python · CMake · Haskell
 
 ## Direction
 
