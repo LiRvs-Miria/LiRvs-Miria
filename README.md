@@ -37,11 +37,12 @@ them (machine-checked formal methods).
 
 ## Toolbox
 
-C/C++20 · MLIR / LLVM · TableGen · Python · TypeScript · CMake · ANTLR
+C/C++20 · MLIR / LLVM · TableGen · Python · CMake
 
 ## Direction
 
-Program analysis on MLIR — dataflow and symbolic execution on custom
-dialects — as the road toward formal methods: translation validation for
-lowering pipelines, and machine-checkable guarantees for the languages
-I build.
+Security and program analysis for the infrastructure that builds and
+inspects programs — debug protocols, toolchains, and the IR layer:
+measuring their attack surfaces, making protection strength measurable,
+and closing the loop between symbolic execution and the debugger.
+Formal methods stay on the horizon.
