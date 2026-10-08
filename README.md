@@ -9,14 +9,17 @@ them (machine-checked formal methods).
 ## Now
 
 - **LLVM upstream contributions**
-  - Merged — `[lldb-server]` Fix false watchpoint stop on single-step when the
-    hardware debug regset read fails (aarch64) —
+  - Merged — `[lldb-server]` false watchpoint stop on aarch64 single-step:
+    the kernel reports single-step as TRAP_HWBKPT, so an uninitialized
+    register-context out-param turned every step into a phantom hit —
     [PR #226880](https://github.com/llvm/llvm-project/pull/226880)
   - In review — `[mlir][tblgen]` Error on unsubstituted `$_self` in op trait
     predicates — [PR #227263](https://github.com/llvm/llvm-project/pull/227263)
 - **[symrepl](https://github.com/LiRvs-Miria/symrepl)** — replay KLEE
   symbolic-execution counterexamples under LLDB: path-condition-aware
-  breakpoints, step-by-step input injection, state dumps.
+  breakpoints, step-by-step input injection, state dumps. Debugger-side
+  foundation for [ptrfuzz](https://github.com/LiRvs-Miria/ptrfuzz), a
+  coverage-guided fuzzing platform.
 - **Day job (closed source)** — an MLIR-based compiler for IEC 61499 /
   IEC 61131-3 (Structured Text): custom MLIR dialects (TableGen ODS: ops,
   types, interfaces, constraints), a multi-stage lowering pipeline down to
@@ -34,8 +37,7 @@ them (machine-checked formal methods).
 
 ## Toolbox
 
-C/C++20 · MLIR / LLVM · TableGen · Python · TypeScript · LLDB / DAP ·
-ptrace · DWARF · aarch64 embedded Linux · CMake · ANTLR
+C/C++20 · MLIR / LLVM · TableGen · Python · TypeScript · CMake · ANTLR
 
 ## Direction
 
