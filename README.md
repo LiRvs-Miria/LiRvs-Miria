@@ -15,11 +15,24 @@ them (machine-checked formal methods).
     [PR #226880](https://github.com/llvm/llvm-project/pull/226880)
   - In review — `[mlir][tblgen]` Error on unsubstituted `$_self` in op trait
     predicates — [PR #227263](https://github.com/llvm/llvm-project/pull/227263)
+  - Filed — `[mlir][bug][OpenACC][fuzzer-found]` crash in `Operation::fold`
+    (constant_op_binder) under `symbol-privatize` + `remove-dead-values` —
+    [issue #237126](https://github.com/llvm/llvm-project/issues/237126)
+  - Independent repro on the open SCCP dataflow crash
+    ([#226008](https://github.com/llvm/llvm-project/issues/226008)) via a
+    different async construct; validating the fix
+    ([#226086](https://github.com/llvm/llvm-project/pull/226086)) when it lands
 - **[symrepl](https://github.com/LiRvs-Miria/symrepl)** — replay KLEE
   symbolic-execution counterexamples under LLDB: path-condition-aware
   breakpoints, step-by-step input injection, state dumps. Debugger-side
   foundation for [ptrfuzz](https://github.com/LiRvs-Miria/ptrfuzz), a
   coverage-guided fuzzing platform.
+- **[mlir-opt-fuzzer](https://github.com/LiRvs-Miria/mlir-opt-fuzzer)** —
+  pass-pipeline fuzzer for MLIR (in-tree target proposed on
+  [discourse](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/8)):
+  first campaign yielded 7 crash classes, 2 in the valid-IR class; MLIR
+  annex to the fuzzer-issue guidelines offered
+  [on the RFC thread](https://discourse.llvm.org/t/rfc-guidelines-for-fuzzer-generated-issues/82556/8)
 - **Day job (closed source)** — an MLIR-based compiler for IEC 61499 /
   IEC 61131-3 (Structured Text): custom MLIR dialects (TableGen ODS: ops,
   types, interfaces, constraints), a multi-stage lowering pipeline down to
