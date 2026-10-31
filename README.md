@@ -22,16 +22,23 @@ them (machine-checked formal methods).
     ([#226008](https://github.com/llvm/llvm-project/issues/226008)) via a
     different async construct; validating the fix
     ([#226086](https://github.com/llvm/llvm-project/pull/226086)) when it lands
+  - Triage — `[lldb]` 22.x debuginfod abort: `/bin/true` reproducer,
+    verified workarounds, and the Debian packaging link —
+    [#184728](https://github.com/llvm/llvm-project/issues/184728) /
+    [Debian #1152537](https://bugs.debian.org/1152537)
 - **[symrepl](https://github.com/LiRvs-Miria/symrepl)** — replay KLEE
   symbolic-execution counterexamples under LLDB: path-condition-aware
   breakpoints, step-by-step input injection, state dumps. Debugger-side
   foundation for [ptrfuzz](https://github.com/LiRvs-Miria/ptrfuzz), a
   coverage-guided fuzzing platform.
 - **[mlir-opt-fuzzer](https://github.com/LiRvs-Miria/mlir-opt-fuzzer)** —
-  pass-pipeline fuzzer for MLIR (in-tree target proposed on
-  [discourse](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/8)):
-  first campaign yielded 7 crash classes, 2 in the valid-IR class; MLIR
-  annex to the fuzzer-issue guidelines offered
+  pass-pipeline fuzzer for MLIR (in-tree target
+  [proposed](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/8)
+  and [approved](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/10)
+  on discourse; reporting follows the
+  [triager-aggregation model](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/13)
+  adopted in-thread): first campaign yielded 7 crash classes, 2 in the
+  valid-IR class; MLIR annex to the fuzzer-issue guidelines offered
   [on the RFC thread](https://discourse.llvm.org/t/rfc-guidelines-for-fuzzer-generated-issues/82556/8)
 - **Day job (closed source)** — an MLIR-based compiler for IEC 61499 /
   IEC 61131-3 (Structured Text): custom MLIR dialects (TableGen ODS: ops,
