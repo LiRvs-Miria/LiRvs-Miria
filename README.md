@@ -9,6 +9,19 @@ them (machine-checked formal methods).
 ## Now
 
 - **LLVM upstream contributions**
+  - Merged — `[mlir][WasmSSA]` mark `wasmssa.return` as `ReturnLike`:
+    without the trait, `-remove-dead-values` erased a function's dead
+    results but left the terminator operands behind, leaving IR that no
+    longer verified — found by the fuzzer
+    ([issue #242375](https://github.com/llvm/llvm-project/issues/242375),
+    fixed by
+    [PR #243023](https://github.com/llvm/llvm-project/pull/243023))
+  - Merged — `[mlir][WasmSSA]` follow-up link fix: `ReturnLike` implicitly
+    requires `RegionBranchTerminatorOpInterface`, whose implementation
+    lives in `MLIRControlFlowInterfaces`; added the missing `LINK_LIBS`
+    entry after two shared-library builders broke on main, verified with a
+    local RED→GREEN shared-lib build —
+    [PR #243322](https://github.com/llvm/llvm-project/pull/243322)
   - Merged — `[lldb-server]` false watchpoint stop on aarch64 single-step:
     the kernel reports single-step as TRAP_HWBKPT, so an uninitialized
     register-context out-param turned every step into a phantom hit —
@@ -24,7 +37,8 @@ them (machine-checked formal methods).
     ([#226086](https://github.com/llvm/llvm-project/pull/226086)) when it lands
   - Triage — `[lldb]` 22.x debuginfod abort: `/bin/true` reproducer,
     verified workarounds, and the Debian packaging link —
-    [#184728](https://github.com/llvm/llvm-project/issues/184728) /
+    [#184728](https://github.com/llvm/llvm-project/issues/184728) (closed
+    upstream) /
     [Debian #1152537](https://bugs.debian.org/1152537)
 - **[symrepl](https://github.com/LiRvs-Miria/symrepl)** — replay KLEE
   symbolic-execution counterexamples under LLDB: path-condition-aware
@@ -32,13 +46,21 @@ them (machine-checked formal methods).
   foundation for [ptrfuzz](https://github.com/LiRvs-Miria/ptrfuzz), a
   coverage-guided fuzzing platform.
 - **[mlir-opt-fuzzer](https://github.com/LiRvs-Miria/mlir-opt-fuzzer)** —
-  pass-pipeline fuzzer for MLIR (in-tree target
+  pass-pipeline fuzzer for MLIR. In-tree target under review
+  ([PR #239171](https://github.com/llvm/llvm-project/pull/239171);
   [proposed](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/8)
-  and [approved](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/10)
+  and
+  [approved](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/10)
   on discourse; reporting follows the
   [triager-aggregation model](https://discourse.llvm.org/t/fuzzing-mlir-infrastructure/84855/13)
-  adopted in-thread): first campaign yielded 7 crash classes, 2 in the
-  valid-IR class; MLIR annex to the fuzzer-issue guidelines offered
+  adopted in-thread): startup-selected pipelines from a closed `.def`
+  vocabulary, verify-after-pipeline oracle, and a structural mutator
+  (synonymous / missense / nonsense gene-level strategies, every candidate
+  gated through parse + verify). First campaign yielded 7 crash classes,
+  2 in the valid-IR class; the follow-up campaign with the new strategies
+  produced [issue #242375](https://github.com/llvm/llvm-project/issues/242375)
+  — filed and fixed in-tree within four days. MLIR annex to the
+  fuzzer-issue guidelines offered
   [on the RFC thread](https://discourse.llvm.org/t/rfc-guidelines-for-fuzzer-generated-issues/82556/8)
 - **Day job (closed source)** — an MLIR-based compiler for IEC 61499 /
   IEC 61131-3 (Structured Text): custom MLIR dialects (TableGen ODS: ops,
