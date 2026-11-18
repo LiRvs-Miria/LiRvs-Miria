@@ -77,7 +77,7 @@ Filed / repro / triage:
 - [symrepl](https://github.com/LiRvs-Miria/symrepl) — replay KLEE
   symbolic-execution counterexamples under LLDB: path-condition-aware
   breakpoints, step-by-step input injection, state dumps. Debugger-side
-  foundation for [ptrfuzz](https://github.com/LiRvs-Miria/ptrfuzz), a
+  foundation for [dbgfuzz](https://github.com/LiRvs-Miria/dbgfuzz), a
   coverage-guided fuzzing platform.
 
 ## Background
